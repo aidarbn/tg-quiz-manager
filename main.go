@@ -29,6 +29,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	msg, err := b.SendMessage(ctx, &bot.SendMessageParams{ChatID: chatID, Text: "Бот запущен"})
+	if err != nil {
+		panic(err)
+	} else {
+		log.Println(msg)
+	}
 	for range ticker {
 		now := time.Now()
 		weekday := now.Weekday()
