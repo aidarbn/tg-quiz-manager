@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	log.Println("app is starting")
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 
@@ -22,7 +23,7 @@ func main() {
 		panic(err)
 	}
 
-	b.Start(ctx)
+	go b.Start(ctx)
 	ticker := time.Tick(time.Hour)
 	chatIDStr := os.Getenv("CHAT_ID")
 	chatID, err := strconv.Atoi(chatIDStr)
