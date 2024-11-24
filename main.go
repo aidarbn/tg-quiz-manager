@@ -29,6 +29,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	log.Println("app is running")
 	msg, err := b.SendMessage(ctx, &bot.SendMessageParams{ChatID: chatID, Text: "Бот запущен"})
 	if err != nil {
 		panic(err)
